@@ -1,9 +1,9 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Comment extends Sequelize.Model {
+module.exports = class Post extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      comment: {
+      post: {
         type: Sequelize.STRING(100),
         allowNull: false
       }
@@ -19,6 +19,6 @@ module.exports = class Comment extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.Comment.belongsTo(db.User, { foreignKey: 'userId', targetKey: 'id' });
+    db.Post.belongsTo(db.User, { foreignKey: 'userId', targetKey: 'id' });
   }
 };

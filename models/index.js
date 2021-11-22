@@ -14,7 +14,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.User = User;
-db.Post = Comment;
+db.Post = Post;
 
 User.init(sequelize);
 Post.init(sequelize);

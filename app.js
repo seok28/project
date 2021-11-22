@@ -11,8 +11,8 @@ const { sequelize } = require('./models');
 
 const passportConfig = require('./passport');
 const authRouter = require('./routes/auth');
-const userRouter = require('./routes/user');
-const commentRouter = require('./routes/comment');
+const signupRouter = require('./routes/signup');
+// const postRouter = require('./routes/post');
 const indexRouter = require('./routes');
 
 
@@ -33,7 +33,8 @@ sequelize.sync({ force: false })
   .catch(err => console.error(err)); 
 
   app.use(
-    morgan('dev'),  
+    morgan('dev'),
+    express.static(path.join(__dirname,'public')),  
     express.json(), // JSON 형식의 데이터를 분석(파싱)해서 요청객체의 body에 추가시켜주는 것  
     express.urlencoded({ extended: false }), // url 파싱해서 params에 속성 추가   
     cookieParser(process.env.SECRET),  // 요청자가 누구인지 알기위해 사용하는 미들웨어 
@@ -53,6 +54,10 @@ sequelize.sync({ force: false })
 app.use(passport.initialize()); // 요청객체에 passport의 설정 값 적용
 app.use(passport.session());  // 요청객체에 passport 세션 정보 저장 
 
+app.use('/auth',authRouter);
+app.use('/signup',signupRouter);
+// app.use('/post',postRouter);
+app.use('/',indexRouter);
 
 app.use((req, res, next) => {
     res.locals.title = require('./package.json').name;
