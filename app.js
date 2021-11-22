@@ -10,9 +10,9 @@ const passport = require('passport');
 const { sequelize } = require('./models');
 
 const passportConfig = require('./passport');
-const authRouter = require('./routes/auth');
+const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
-// const postRouter = require('./routes/post');
+const boardRouter = require('./routes/board');
 const indexRouter = require('./routes');
 
 
@@ -54,9 +54,9 @@ sequelize.sync({ force: false })
 app.use(passport.initialize()); // 요청객체에 passport의 설정 값 적용
 app.use(passport.session());  // 요청객체에 passport 세션 정보 저장 
 
-app.use('/auth',authRouter);
+app.use('/signin',signinRouter);
 app.use('/signup',signupRouter);
-// app.use('/post',postRouter);
+app.use('/board', boardRouter);
 app.use('/',indexRouter);
 
 app.use((req, res, next) => {

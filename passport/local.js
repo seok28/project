@@ -4,7 +4,6 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 
 module.exports = () => {
-  // 로컬 로그인을 하기위한 전략에 관한 설정을 하는 것이고 로그인 라우터의 req.body 속성 입력함 
   passport.use(new Strategy({
     usernameField: 'id',
     passwordField: 'password'
