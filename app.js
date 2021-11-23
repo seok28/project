@@ -12,7 +12,7 @@ const { sequelize } = require('./models');
 const passportConfig = require('./passport');
 const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
-const boardRouter = require('./routes/board');
+const controlRouter = require('./board/control');
 const indexRouter = require('./routes');
 
 
@@ -56,7 +56,7 @@ app.use(passport.session());  // 요청객체에 passport 세션 정보 저장
 
 app.use('/signin',signinRouter);
 app.use('/signup',signupRouter);
-app.use('/board', boardRouter);
+app.use('/control',controlRouter);
 app.use('/',indexRouter);
 
 app.use((req, res, next) => {

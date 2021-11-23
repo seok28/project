@@ -1,9 +1,6 @@
 const path = require('path');
 const express = require('express');
 
-// models/index User,Comment 구조분해할당
-const { User, Post } = require('../models');
-
 const router = express.Router();
 
 
@@ -30,6 +27,7 @@ router.get('/signUp', (req, res, next) => {
 router.get('/post', async (req, res, next) => {
     try {
        res.locals.title = require('../package.json').name;
+       res.locals.port = router.get('port');
        res.render('post');
     } catch (err) {
         console.error(err);

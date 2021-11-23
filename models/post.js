@@ -3,8 +3,12 @@ const Sequelize = require('sequelize');
 module.exports = class Post extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
-      post: {
+      title: {
         type: Sequelize.STRING(100),
+        allowNull: false
+      },
+      contents : {
+        type:Sequelize.STRING(100),
         allowNull: false
       }
     }, {
