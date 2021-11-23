@@ -3,8 +3,10 @@ const path = require('path');
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
+    res.locals.title = require('../package.json').name;
+    res.locals.port = process.env.port;
     try {
-       res.render('/');
+       res.render('post');
     } catch (err) {
         console.error(err);
         next(err);
@@ -12,9 +14,7 @@ router.get('/', (req, res, next) => {
 });
 router.get('/write',(req,res,next) => {
     try {
-        res.locals.title = require('../package.json').name;
-        res.locals.port = router.get('port');
-        res.render('/write');
+        res.render('postWrite');
     }catch(error) {
         console.error(err);
         next(err);
@@ -22,9 +22,7 @@ router.get('/write',(req,res,next) => {
 });
 router.get('/edit',(req,res,next) => {
     try {
-        res.locals.title = require('../package.json').name;
-        res.locals.port = router.get('port');
-        res.render('/edit');
+        res.render('edit');
     }catch(error) {
         console.error(err);
         next(err);

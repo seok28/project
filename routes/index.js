@@ -6,7 +6,6 @@ const router = express.Router();
 
 router.get('/signIn', (req, res, next) => {
     try {
-       res.locals.title= require('../package.json').name;
        res.render('signIn');
     } catch (err) {
         console.error(err);
@@ -16,7 +15,6 @@ router.get('/signIn', (req, res, next) => {
 
 router.get('/signUp', (req, res, next) => {
     try {
-        res.locals.title = require('../package.json').name;
         res.render('signUp');
     } catch (err) {
         console.error(err);
@@ -26,8 +24,6 @@ router.get('/signUp', (req, res, next) => {
 
 router.get('/post', async (req, res, next) => {
     try {
-       res.locals.title = require('../package.json').name;
-       res.locals.port = router.get('port');
        res.render('post');
     } catch (err) {
         console.error(err);

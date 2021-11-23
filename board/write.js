@@ -35,7 +35,7 @@ const router = express.Router();
 //     }
 // };
 
-router.route('/write') 
+router.route('/') 
     .get(isLoggedIn,(req,res) => {
         res.locals.title = require('../package.json').name;
         res.render('postWrite');
