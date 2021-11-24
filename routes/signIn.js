@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (authError, user, info) => {
-        if (user) req.login(user, loginError => res.redirect('/'));  
+        if (user) req.login(user, loginError => res.redirect('signIn'));  
         else next(`Login fail!`); 
     })(req, res, next);
 });

@@ -13,6 +13,7 @@ const passportConfig = require('./passport');
 const signinRouter = require('./routes/signin');
 const signupRouter = require('./routes/signup');
 const boardRouter = require('./board/control');
+const writeRouter = require('./board/write');
 const indexRouter = require('./routes/index');
 
 
@@ -56,6 +57,7 @@ app.use(passport.session());  // 요청객체에 passport 세션 정보 저장
 
 app.use('/signin',signinRouter);
 app.use('/signup',signupRouter);
+app.use('/write',writeRouter);
 app.use('/board',boardRouter);
 app.use('/',indexRouter);
 

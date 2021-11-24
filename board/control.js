@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 router.get('/write',(req,res,next) => {
     try {
         res.render('postWrite');
-    }catch(error) {
+    } catch(error) {
         console.error(err);
         next(err);
     }
