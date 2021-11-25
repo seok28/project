@@ -8,17 +8,27 @@
 <body>
     <h1> 게시판 <br>
    <a href="/board/write"> 게시글 작성 </a> <br>
-    <table border="1">
-    <tr> 
+   <table border="1">
+    <tr>
         <td>작성자</td>
         <td>제목</td>
         <td>내용</td>
         <td>등록일</td>
         <td>수정일</td>
     </tr>
-    </table>
+   
+    <tr>
+        <td><user.name></td>
+        <td> post.title</a></td>
+        <td><%=data.contents%></td>
+        <td><%=data.createdAt%></td>
+        <td><%=data.updatedAt%></td>
+    </tr>
+    
+</table>
     <br>
     <a href = "/"> 처음 화면 </a> <br>
+    
 </body>
 
 </html>

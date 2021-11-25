@@ -10,7 +10,11 @@ module.exports = class Post extends Sequelize.Model {
       contents : {
         type:Sequelize.STRING(100),
         allowNull: false
-      }
+      },
+       registerDate :{
+         type: Sequelize.STRING(100),
+         allowNull: true
+       }
     }, {
       sequelize,
       timestamps: false,

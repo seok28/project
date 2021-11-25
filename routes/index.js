@@ -22,7 +22,7 @@ router.get('/signUp', (req, res, next) => {
     }
 });
 
-router.get('/post', async (req, res, next) => {
+router.get('/board', async (req, res, next) => {
     try {
        res.render('post');
     } catch (err) {
