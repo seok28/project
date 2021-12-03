@@ -1,9 +1,7 @@
-const path = require('path');
 const express = require('express');
-const Post = require('../models/post');
+const {Post,User} = require('../models');
 
 const router = express.Router();
-
 
 // 게시글 작성 
 router.route('/write') 
@@ -20,5 +18,27 @@ router.route('/write')
             next(err);
         }
     });
+    // 게시글 보여주기 
+  router.get('/board',async(req,res,next) => {
+    
+    try {
+            const posts = await Post.findAll({
+                include: {
+                    model: User,
+                    attributes: ['id','name'],
+                },
+                order :[['createdAt','DESC']],
+            });
+            res.render('board', {
+                title:'web2',
+                twits: posts,
+            });
+            
+        }catch(err) {
+            console.error(err);
+            next(err);
+        }
+    });
+
 
 module.exports = router;

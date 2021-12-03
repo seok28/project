@@ -5,6 +5,7 @@ const router = express.Router();
 
 
 router.get('/', (req, res, next) => {
+    res.locals.user = req.user;
     try {
        res.render('index.html');
     } catch (err) {

@@ -6,29 +6,19 @@
 </head>
 
 <body>
-    <h1> 게시판 <br>
-   <a href="/board/write"> 게시글 작성 </a> <br>
-   <table border="1">
-    <tr>
-        <td>작성자</td>
-        <td>제목</td>
-        <td>내용</td>
-        <td>등록일</td>
-        <td>수정일</td>
-    </tr>
-   
-    <tr>
-        <td><user.name></td>
-        <td> </td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
+    <h2> 게시판 페이지  <br>
+    {% if user %}
+    {{ user.name }} 님 환영합니다 ! <br>
+    <a href="/board/write"> 게시글 작성 </a> <br>
     
-</table>
-    <br>
+   <br>
+     
     <a href = "/"> 처음 화면 </a> <br>
-    
+    {% else %}
+    로그인 해주세요. <br>
+     <a href ="member/signUp"> 회원가입 하러 가기 </a> <br>
+     <a href ="member/login"> 로그인 하러 가기 </a> <br>
+    {% endif %}
 </body>
 
 </html>
