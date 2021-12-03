@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const router = express.Router();
 
+router.get('/signUp',(req, res)=>{
+    res.render('signUp.html');
+});
 
 router.route('/signUp')
     .get(async(req,res,next) => {
@@ -39,10 +42,12 @@ router.route('/signUp')
     }
 });
 
-
+router.get('/login',(req, res)=>{
+    res.render('login.html');
+});
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', (authError, user, info) => {
-        if (user) req.login(user, loginError => res.redirect('login'));  
+        if (user) req.login(user, loginError => res.redirect('/'));  
         else next(`Login fail!`); 
     })(req, res, next);
 });
