@@ -10,8 +10,21 @@
     {% if user %}
     {{ user.name }} 님 환영합니다 ! <br>
     <a href="/board/write"> 게시글 작성 </a> <br>
-    
+    <table border="1">
+        <tr>
+            <td>작성자</td>
+            <td>제목</td>
+            <td>내용</td>
+            
+        </tr>
+       
+        <tr> 
+        <td>  {{user.name}} </td>
+         <td>  </td>
+         <td> </td>
+        </tr>
    <br>
+   <a href = "/member/logout"> 로그아웃 </a> <br>
     <a href = "/"> 처음 화면 </a> <br>
     {% else %}
     로그인 해주세요. <br>

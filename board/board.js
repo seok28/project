@@ -19,7 +19,7 @@ router.route('/write')
     });
     // 게시글 보여주기 
   router.get('/board',async(req,res,next) => {
-    
+    res.locals.post = req.Post;
     try {
             const posts = await Post.findAll({
                 include: {
