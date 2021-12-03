@@ -2,19 +2,16 @@
 <html>
 
 <head>
-    <title> Web2:{{title}}</title>
+    <title> Web2: 가족같은 2남1녀 </title>
 </head>
 
 <body>
     <h1>가족같은 2남1녀 </h1><br>
     <p>
-    {% if user %}
-    {{user.name}} 님 환영합니다 !  <br>
-    <a href = "http://localhost:{{port}}/signIn/logout"> 로그아웃 </a> <br> 
-    {% else %}
-    <a href="http://localhost:{{port}}/signIn"> 로그인 페이지(signIn) </a> <br>
-    {% endif %}
-    <a href="http://localhost:{{port}}/signUp"> 회원가입(signUp) </a> <br>
+    <a href="/member/login"> 로그인 페이지(signIn) </a> <br>
+
+    <a href="/member/signUp"> 회원가입(signUp) </a> <br>
+    
     <a href="/board"> 게시판 이동(post) </a> <br>
     </p>
    

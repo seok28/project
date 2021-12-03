@@ -10,12 +10,10 @@ const passport = require('passport');
 const { sequelize } = require('./models');
 
 const passportConfig = require('./passport');
-const signinRouter = require('./routes/signin');
-const signupRouter = require('./routes/signup');
+const memberRouter = require('./routes/member');
 const boardRouter = require('./board/control');
-const BoardRouter = require('./board/index')
 const writeRouter = require('./board/write');
-const indexRouter = require('./routes/index');
+const indexRouter = require('./routes');
 
 
 dotenv.config(); 
@@ -56,9 +54,8 @@ sequelize.sync({ force: false })
 app.use(passport.initialize()); // 요청객체에 passport의 설정 값 적용
 app.use(passport.session());  // 요청객체에 passport 세션 정보 저장 
 
-app.use('/signin',signinRouter);
-app.use('/signup',signupRouter);
-app.use('/Board',BoardRouter);
+
+app.use('/member',memberRouter);
 app.use('/write',writeRouter);
 app.use('/board',boardRouter);
 app.use('/',indexRouter);
