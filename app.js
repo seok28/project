@@ -9,11 +9,11 @@ const passport = require('passport');
 
 const { sequelize } = require('./models');
 
-const passportConfig = require('./passport');
-const memberRouter = require('./routes/member');
-const boardRouter = require('./board/control');
-const writeRouter = require('./board/write');
-const indexRouter = require('./routes');
+const passportConfig = require('./passport');  
+const boardRouter = require('./board/board');  // 게시글 기능
+const memberRouter = require('./routes/member'); // 회원가입,로그인
+const boardIndexRouter = require('./board');  // 게시판 화면
+const indexRouter = require('./routes'); // 메인 화면(로그인,회원가입)
 
 
 dotenv.config(); 
@@ -56,9 +56,9 @@ app.use(passport.session());  // 요청객체에 passport 세션 정보 저장
 
 
 app.use('/member',memberRouter);
-app.use('/write',writeRouter);
 app.use('/board',boardRouter);
 app.use('/',indexRouter);
+app.use('/',boardIndexRouter);
 
 app.use((req, res, next) => {
     res.locals.title = require('./package.json').name;
