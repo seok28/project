@@ -42,7 +42,7 @@ router.route('/signUp')
     }
 });
 
-router.get('/login',(req, res)=>{
+router.get('/login', (req,res)=>{
     res.render('login.html');
 });
 router.post('/login', (req, res, next) => {

@@ -1,6 +1,5 @@
 const express = require('express');
 const {Post,User} = require('../models');
-
 const router = express.Router();
 
 // 게시글 작성 
@@ -27,7 +26,6 @@ router.route('/write')
                     model: User,
                     attributes: ['id','name'],
                 },
-                order :[['createdAt','DESC']],
             });
             res.render('board', {
                 title:'web2',
